@@ -1,0 +1,444 @@
+/* Base Reset and Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #004d40; /* Dark Teal - Navy Theme */
+    --secondary-color: #ff9800; /* Bright Orange - CTA */
+    --accent-color: #b2dfdb; /* Light Teal */
+    --text-dark: #333;
+    --text-light: #f4f7f6;
+    --bg-light: white;
+    --bg-dark: #f4f7f6;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Fixed Header/Navigation --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-weight: 600;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color) !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-left: 20px;
+}
+
+.nav-button:hover {
+    background-color: #fb8c00;
+    transform: translateY(-2px);
+}
+
+/* --- Section Blocks --- */
+.section-block {
+    padding: 100px 0 80px 0;
+    /* Extra padding at the top to clear the fixed header */
+    padding-top: calc(100px + 70px); 
+    min-height: 100vh; /* Optional: Make each section full screen height */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+/* --- 2. Hero Section Specifics --- */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1600/1000?random=1') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding-top: 50px;
+}
+
+.pre-title {
+    font-size: 1.1em;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.tagline {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    color: #e0f2f1;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 18px 40px;
+    font-size: 1.3em;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
+    margin-bottom: 40px;
+}
+
+.cta-button:hover {
+    background-color: #fb8c00;
+    transform: translateY(-3px) scale(1.02);
+}
+
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 77, 64, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.stats-bar div {
+    font-size: 1.1em;
+}
+
+/* --- 3. About Section Specifics --- */
+.about-section {
+    background-color: var(--bg-light);
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    margin-right: 8px;
+}
+
+.note {
+    font-style: italic;
+    color: #555;
+}
+
+/* --- 4. Events Section Specifics --- */
+.events-section {
+    background-color: var(--bg-dark);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    border-top: 5px solid var(--secondary-color);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.event-card i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.event-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.code-pill {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+/* --- 5. Schedule Section Specifics --- */
+.schedule-section {
+    background-color: var(--bg-light);
+}
+
+.schedule-flex {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.dates-box {
+    flex: 1;
+    max-width: 400px;
+    background: var(--primary-color);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.dates-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.dates-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dates-box li {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.dates-box li i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.exam-table-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.exam-table-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 1em;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--accent-color);
+}
+
+/* --- 6. Prizes Section Specifics --- */
+.prizes-section {
+    background-color: var(--bg-dark);
+}
+
+.prize-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.prize-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prize-card i {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.prize-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.prize-card .gold { color: gold; }
+.prize-card .silver { color: silver; }
+.prize-card .fa-certificate { color: var(--primary-color); }
+
+/* --- 7. Footer --- */
+footer {
+    background-color: #00332c;
+    color: #b2dfdb;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVENESS (Mobile Adjustments) --- */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-content nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+
+    .nav-button {
+        margin-top: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    
+    .stats-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .schedule-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .dates-box, .exam-table-container {
+        max-width: 100%;
+        width: 100%;
+    }
+  }
