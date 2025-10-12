@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+/* FIX: Absolute reset for white space at the very top */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary-color: #004d40; /* Dark Teal - Navy Theme */
     --secondary-color: #ff9800; /* Bright Orange - CTA */
@@ -40,7 +46,6 @@ body {
     background-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    /* Set desktop height */
     height: var(--header-height-desktop); 
     transition: height 0.3s;
 }
@@ -97,8 +102,7 @@ nav a:hover {
     min-height: 100vh;
 }
 
-/* Target for fixed header offset (Scroll Padding) */
-/* This is the key to minimizing the "extra space" without content hiding */
+/* FIX: This handles the gap when scrolling to a section */
 html {
     scroll-padding-top: var(--header-height-desktop);
 }
@@ -106,7 +110,8 @@ html {
 /* Ensure the Hero section starts immediately after the header */
 .hero-section {
     padding-top: 0; /* Remove top padding for hero */
-    min-height: calc(100vh - var(--header-height-desktop));
+    /* Adjust min-height to account for the header */
+    min-height: calc(100vh - var(--header-height-desktop)); 
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1600/1000?random=1') no-repeat center center/cover;
     color: white;
     display: flex;
@@ -133,14 +138,30 @@ html {
     border-radius: 2px;
 }
 
-/* --- Hero Section Specifics --- (unchanged content styling) */
-/* ... (Hero content styles remain the same for brevity) ... */
+/* --- Hero Section Specifics --- */
 .hero-content { max-width: 800px; padding-top: 50px; }
 .pre-title { font-size: 1.1em; color: var(--accent-color); font-weight: 600; margin-bottom: 10px; }
 .hero-content h1 { font-size: 3.5em; margin-bottom: 20px; color: white; }
 .tagline { font-size: 1.4em; margin-bottom: 40px; color: #e0f2f1; }
-.cta-button { /* ... styles ... */ }
-.cta-button:hover { /* ... styles ... */ }
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 18px 40px;
+    font-size: 1.3em;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
+    margin-bottom: 40px;
+}
+
+.cta-button:hover {
+    background-color: #fb8c00;
+    transform: translateY(-3px) scale(1.02);
+}
+
 .stats-bar { display: flex; justify-content: space-around; background: rgba(0, 77, 64, 0.8); padding: 20px; border-radius: 8px; margin-top: 30px; font-weight: 600; }
 .stats-bar div { font-size: 1.1em; }
 
@@ -209,7 +230,7 @@ footer { background-color: #00332c; color: #b2dfdb; padding: 25px 0; text-align:
     /* Adjust Header for Mobile: stacking elements */
     .main-header {
         height: auto; /* Allow header height to adapt */
-        min-height: var(--header-height-mobile); /* Use the new mobile height variable */
+        min-height: var(--header-height-mobile); 
     }
     
     .nav-content {
@@ -281,12 +302,13 @@ footer { background-color: #00332c; color: #b2dfdb; padding: 25px 0; text-align:
         width: 100%;
     }
     
-    /* Ensure tables are usable on small screens */
+    /* Responsive Table Styles (Using data-label from index.html) */
     table, thead, tbody, th, td, tr {
         display: block;
     }
     
     thead tr {
+        /* Hide table headers (but not display:none, or screen readers won't find them) */
         position: absolute;
         top: -9999px;
         left: -9999px;
@@ -300,8 +322,8 @@ footer { background-color: #00332c; color: #b2dfdb; padding: 25px 0; text-align:
         text-align: right;
     }
     
-    /* Optional: Show table header on mobile row */
     tbody td:before {
+        /* Use the data-label attribute to show the column name */
         content: attr(data-label);
         position: absolute;
         left: 0;
@@ -311,8 +333,4 @@ footer { background-color: #00332c; color: #b2dfdb; padding: 25px 0; text-align:
         text-align: left;
         color: var(--primary-color);
     }
-    
-    /* Fix for schedule table specifically */
-    .schedule-section tbody td:nth-of-type(1):before { content: "Date"; }
-    .schedule-section tbody td:nth-of-type(2):before { content: "Olympiads"; }
-}
+        }
