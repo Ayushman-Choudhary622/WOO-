@@ -26,7 +26,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Fade-in animation for sections on load/scroll
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('.fade-in');
 const options = {
     threshold: 0.1
 };
@@ -41,12 +41,11 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, options);
 
 sections.forEach(section => {
-    section.classList.add('fade-in');
     observer.observe(section);
 });
 
-// Animate cards on hover (already in CSS, but JS for dynamic addition if needed)
-const cards = document.querySelectorAll('.card');
+// Animate cards on hover
+const cards = document.querySelectorAll('.glow-card');
 cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
         card.style.transform = 'scale(1.05)';
@@ -66,6 +65,13 @@ if (registerBtn) {
         registerBtn.textContent = 'Register Now';
     });
 }
+
+// Parallax effect for header (simple JS fallback if CSS not supported)
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const scrollPosition = window.pageYOffset;
+    header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+});
 
 // Ensure compatibility and polyfill if needed (e.g., for older browsers)
 if (!('IntersectionObserver' in window)) {
