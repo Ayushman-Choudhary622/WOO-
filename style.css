@@ -1,4 +1,3 @@
-
 /* ------------------------------------------- */
 /* 1. Global Reset & Variables */
 /* ------------------------------------------- */
@@ -8,6 +7,7 @@
     --color-dark: #0a192f; /* Deep Navy Blue/Black - the main dark background */
     --color-light: #ccd6f6; /* Light Gray/Blue - for main text */
     --color-card-bg: rgba(18, 41, 71, 0.75); /* Slightly lighter dark for cards */
+    --color-section-bg: rgba(10, 25, 47, 0.6); /* For sections needing contrast */
     --font-primary: 'Orbitron', sans-serif; /* For headers, tech look */
     --font-secondary: 'Roboto', sans-serif; /* For body text, readability */
     --spacing-lg: 4rem;
@@ -31,12 +31,8 @@ body {
     background-color: var(--color-dark);
     color: var(--color-light);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll due to potential background stretching */
+    overflow-x: hidden;
 }
-
-/* ------------------------------------------- */
-/* 2. Layout & Containers */
-/* ------------------------------------------- */
 
 .container {
     width: 90%;
@@ -47,7 +43,7 @@ body {
 .section {
     padding: var(--spacing-lg) 0;
     position: relative;
-    z-index: 2; /* Keep content above the background canvas */
+    z-index: 2;
 }
 
 .section-title {
@@ -68,7 +64,7 @@ body {
 
 
 /* ------------------------------------------- */
-/* 3. Background (Canvas) */
+/* 2. Background (Canvas) */
 /* ------------------------------------------- */
 #galaxy-canvas {
     position: fixed;
@@ -81,7 +77,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 4. Buttons */
+/* 3. Buttons */
 /* ------------------------------------------- */
 .btn {
     display: inline-block;
@@ -120,7 +116,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 5. Header & Navigation */
+/* 4. Header & Navigation */
 /* ------------------------------------------- */
 header {
     background-color: rgba(10, 25, 47, 0.9); /* Semi-transparent dark header */
@@ -182,7 +178,7 @@ nav a:hover::after {
 }
 
 /* ------------------------------------------- */
-/* 6. Hero Section */
+/* 5. Hero Section */
 /* ------------------------------------------- */
 .hero-section {
     min-height: 80vh;
@@ -210,7 +206,7 @@ nav a:hover::after {
 }
 
 /* ------------------------------------------- */
-/* 7. Olympiads Section (Cards) */
+/* 6. Olympiads Section (Cards) */
 /* ------------------------------------------- */
 
 #olympiads .container {
@@ -247,7 +243,7 @@ nav a:hover::after {
 
 
 /* ------------------------------------------- */
-/* 8. Format and Rules Section */
+/* 7. Format and Rules Section */
 /* ------------------------------------------- */
 
 .tab-controls {
@@ -283,10 +279,16 @@ nav a:hover::after {
 .format-details {
     display: none;
     padding-top: var(--spacing-md);
+    animation: fadeIn 0.5s ease-out;
 }
 
 .format-details.active {
     display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .category-header {
@@ -320,6 +322,7 @@ nav a:hover::after {
 }
 
 .format-details .format-card li {
+    /* Using an inline SVG for the checkmark icon to avoid extra files */
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300bcd4'%3E%3Cpath d='M10 15.586l-3.293-3.293-1.414 1.414L10 18.414l7.707-7.707-1.414-1.414z'/%3E%3C/svg%3E") no-repeat left center;
     background-size: 16px;
     padding-left: 25px;
@@ -329,7 +332,90 @@ nav a:hover::after {
 
 
 /* ------------------------------------------- */
-/* 9. Registration Section */
+/* 8. Awards & Recognition Section */
+/* ------------------------------------------- */
+.awards-section {
+    background-color: var(--color-section-bg);
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.award-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.award-item .icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.award-item h5 {
+    font-family: var(--font-primary);
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+
+/* ------------------------------------------- */
+/* 9. Schedule & Key Dates Section */
+/* ------------------------------------------- */
+.schedule-section {
+    background-color: var(--color-dark);
+}
+
+.schedule-table {
+    max-width: 800px;
+    margin: var(--spacing-md) auto;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden; /* For rounded corners on the whole table */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0;
+    transition: background-color var(--transition-speed);
+}
+
+.schedule-row:not(.header):hover {
+    background-color: var(--color-card-bg);
+}
+
+.schedule-row .col {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.schedule-row.header {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.schedule-row.highlight {
+    border-left: 5px solid var(--color-secondary);
+    background-color: rgba(255, 152, 0, 0.15);
+}
+
+/* ------------------------------------------- */
+/* 10. Registration Section */
 /* ------------------------------------------- */
 .register-section-final {
     text-align: center;
@@ -345,7 +431,7 @@ nav a:hover::after {
 }
 
 /* ------------------------------------------- */
-/* 10. Footer */
+/* 11. Footer */
 /* ------------------------------------------- */
 footer {
     background-color: var(--color-dark);
@@ -382,7 +468,7 @@ footer p {
 
 
 /* ------------------------------------------- */
-/* 11. Media Queries (Responsiveness) */
+/* 12. Media Queries (Responsiveness) */
 /* ------------------------------------------- */
 
 @media (max-width: 800px) {
@@ -390,17 +476,25 @@ footer p {
         font-size: 3rem;
     }
     
-    /* Navigation Adjustments for Mobile */
+    /* Navigation Adjustments for Mobile (Menu Button FIX) */
     #navbar {
-        display: none; /* Hide desktop nav */
+        display: none; /* Hidden by default */
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(10, 25, 47, 0.95);
+        background-color: rgba(10, 25, 47, 0.98); /* Near opaque */
         border-top: 1px solid rgba(0, 188, 212, 0.3);
         padding-bottom: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity var(--transition-speed);
+    }
+
+    #navbar.open {
+        display: flex; /* Shown when 'open' class is added by JS */
+        opacity: 1;
     }
 
     #navbar a {
@@ -408,14 +502,6 @@ footer p {
         padding: 10px var(--spacing-md);
         text-align: center;
         width: 100%;
-    }
-
-    #navbar a:last-child {
-        margin-top: 10px;
-    }
-
-    #navbar.open {
-        display: flex;
     }
 
     .hamburger {
@@ -428,11 +514,27 @@ footer p {
         background-color: var(--color-secondary);
         color: var(--color-dark);
         border-radius: 0;
+        margin-top: 10px;
     }
-
-    .register-btn-nav:hover {
-        background-color: var(--color-secondary);
-        color: var(--color-dark);
+    
+    /* Schedule table on small screens */
+    .schedule-row {
+        grid-template-columns: 1fr; /* Stack columns */
+        text-align: left;
+        padding: 0.8rem 0.5rem;
+    }
+    .schedule-row .col:not(:last-child)::after {
+        content: ""; /* No separator */
+    }
+    .schedule-row .col:first-child {
+        font-weight: bold;
+        color: var(--color-primary);
+    }
+    .schedule-row.header {
+        display: none; /* Hide header row on mobile when stacking */
+    }
+    .schedule-row.highlight {
+        padding: 1rem 0.5rem;
     }
 }
 
@@ -461,9 +563,5 @@ footer p {
     footer .container {
         flex-direction: column;
         gap: 10px;
-    }
-
-    .footer-links {
-        margin-top: 5px;
     }
 }
