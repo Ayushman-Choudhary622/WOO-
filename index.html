@@ -3,227 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Olympiad Organisation</title>
+    <title>WOO World Olympiad Organisation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-text">WOO</div>
+    <div class="background"></div>
+    <div class="container">
+        <header>
+            <h1>WOO: World Olympiad Organisation</h1>
+            <p class="subtitle">Explore 7 Olympiads for Classes 5-10</p>
+        </header>
+        <section>
+            <h2>Olympiad Categories</h2>
+            <div class="categories">
+                <div class="category">
+                    <h3>Epsilon <span>(Classes 5-7)</span></h3>
+                    <ul>
+                        <li>WPO: Physics</li>
+                        <li>WCO: Chemistry</li>
+                        <li>WBO: Biology</li>
+                        <li>WSO: Science (PCB: Lower level)</li>
+                        <li>WMO: Maths</li>
+                        <li>WJSO: Science + Maths + Experiments</li>
+                        <li>WHO: Hackathon</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3>Zeta <span>(Classes 8-10)</span></h3>
+                    <ul>
+                        <li>WPO: Physics</li>
+                        <li>WCO: Chemistry</li>
+                        <li>WBO: Biology</li>
+                        <li>WSO: Science (PCB: Lower level)</li>
+                        <li>WMO: Maths</li>
+                        <li>WJSO: Science + Maths + Experiments</li>
+                        <li>WHO: Hackathon</li>
+                    </ul>
+                </div>
             </div>
-            <div class="mobile-menu">☰</div>
-            <nav>
+        </section>
+        <section>
+            <h2>Olympiad Formats</h2>
+            <div class="formats">
+                <h3>Epsilon</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#olympiads">Olympiads</a></li>
-                    <li><a href="#categories">Categories</a></li>
-                    <li><a href="#registration">Register</a></li>
+                    <li>WBO, WCO, WPO, WSO, WJSO: <br>
+                        25 SCQ (+2/-0.5), 5 MCQ (+4/-2), 45 min test
+                    </li>
+                    <li>WMO: 25 SCQ (+2/-0.5), 5 MCQ (+4/-2), 1 Proof (0≤x≤10, 2 alternatives), 1hr</li>
+                    <li>WHO: 2hr Hackathon, 5 problems, 10 marks each, no negative marking</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>World Olympiad Organisation</h1>
-            <p>Empowering young minds through challenging academic competitions in science, mathematics, and technology</p>
-            <a href="#registration" class="btn">Register Now</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About WOO</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>The World Olympiad Organisation (WOO) is dedicated to fostering academic excellence and nurturing young talents across the globe. Our mission is to provide a platform for students to showcase their knowledge, critical thinking, and problem-solving skills.</p>
-                    <p>We conduct seven distinct Olympiads covering Physics, Chemistry, Biology, Science, Mathematics, Junior Science, and Hackathon competitions. Each Olympiad is carefully designed to challenge students appropriately for their academic level.</p>
-                    <p>Our competitions are divided into two categories: Epsilon for classes 5-7 and Zeta for classes 8-10, ensuring age-appropriate challenges and fair competition.</p>
-                </div>
-                <div class="about-image">
-                    <!-- Placeholder for an image -->
-                    <div class="image-placeholder">
-                        <span>Scientific Background Image</span>
-                    </div>
-                </div>
+                <h3>Zeta</h3>
+                <ul>
+                    <li>WBO, WCO, WPO, WSO, WJSO: <br>
+                        35 SCQ (+2/-0.5), 5 MCQ (+4/-2), 1hr test
+                    </li>
+                    <li>WMO: 35 SCQ (+2/-0.5), 5 MCQ (+4/-2), 3 Proofs (0≤x≤10, 5 alternatives), 2hr</li>
+                    <li>WHO: 2.5hr Hackathon, 7 problems, 10 marks each, no negative marking</li>
+                </ul>
             </div>
-        </div>
-    </section>
-
-    <!-- Olympiads Section -->
-    <section id="olympiads" class="olympiads">
-        <div class="container">
-            <h2>Our Olympiads</h2>
-            <p>WOO conducts seven specialized Olympiads to challenge students in different scientific disciplines:</p>
-            
-            <div class="olympiad-grid">
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WPO</span> Physics Olympiad</h3>
-                    <p>Challenge your understanding of fundamental physics concepts and problem-solving abilities.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WCO</span> Chemistry Olympiad</h3>
-                    <p>Test your knowledge of chemical principles, reactions, and laboratory concepts.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WBO</span> Biology Olympiad</h3>
-                    <p>Explore the fascinating world of living organisms, from cellular biology to ecosystems.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WSO</span> Science Olympiad</h3>
-                    <p>A comprehensive test covering Physics, Chemistry, and Biology with slightly easier questions.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WMO</span> Mathematics Olympiad</h3>
-                    <p>Challenge your mathematical reasoning, problem-solving, and proof-writing skills.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WJSO</span> Junior Science Olympiad</h3>
-                    <p>An integrated approach combining science, mathematics, and experimental concepts.</p>
-                </div>
-                
-                <div class="olympiad-card">
-                    <h3><span class="olympiad-icon">WHO</span> Hackathon Olympiad</h3>
-                    <p>Apply your coding and problem-solving skills to real-world challenges in a timed competition.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="categories">
-        <div class="container">
-            <h2>Competition Categories</h2>
-            <p>All Olympiads are divided into two age-appropriate categories with tailored difficulty levels:</p>
-            
-            <div class="category-tabs">
-                <div class="tab active" data-tab="epsilon">Epsilon (Classes 5-7)</div>
-                <div class="tab" data-tab="zeta">Zeta (Classes 8-10)</div>
-            </div>
-            
-            <div class="tab-content active" id="epsilon-content">
-                <h3>Epsilon Category Details</h3>
-                <p>For students in classes 5-7, the Epsilon category provides an engaging introduction to Olympiad competitions with age-appropriate challenges.</p>
-                
-                <table class="category-table">
-                    <thead>
-                        <tr>
-                            <th>Olympiad</th>
-                            <th>Duration</th>
-                            <th>Question Pattern</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>WBO, WCO, WPO, WSO, WJSO</td>
-                            <td>45 minutes</td>
-                            <td>25 SCQ (+2/-0.5) + 5 MCQ (+4/-2)</td>
-                        </tr>
-                        <tr>
-                            <td>WMO</td>
-                            <td>1 hour</td>
-                            <td>25 SCQ (+2/-0.5) + 5 MCQ (+4/-2) + 1 Proof (0≤x≤10)</td>
-                        </tr>
-                        <tr>
-                            <td>WHO</td>
-                            <td>2 hours</td>
-                            <td>5 problems (no negative marking, each 10 marks max)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="tab-content" id="zeta-content">
-                <h3>Zeta Category Details</h3>
-                <p>For students in classes 8-10, the Zeta category offers more advanced challenges to test deeper understanding and problem-solving skills.</p>
-                
-                <table class="category-table">
-                    <thead>
-                        <tr>
-                            <th>Olympiad</th>
-                            <th>Duration</th>
-                            <th>Question Pattern</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>WBO, WCO, WPO, WSO, WJSO</td>
-                            <td>1 hour</td>
-                            <td>35 SCQ (+2/-0.5) + 5 MCQ (+4/-2)</td>
-                        </tr>
-                        <tr>
-                            <td>WMO</td>
-                            <td>2 hours</td>
-                            <td>35 SCQ (+2/-0.5) + 5 MCQ (+4/-2) + 3 Proof (0≤x≤10)</td>
-                        </tr>
-                        <tr>
-                            <td>WHO</td>
-                            <td>2.5 hours</td>
-                            <td>7 problems (no negative marking, each 10 marks max)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Section -->
-    <section id="registration" class="registration">
-        <div class="container">
-            <h2>Register for WOO Olympiads</h2>
-            <p>Ready to challenge yourself? Register now for the WOO Olympiads and showcase your academic talents on a global platform.</p>
-            <a href="#" class="btn" id="register-btn">Register Now</a>
-            <p class="redirect-note">You will be redirected to our registration form</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>WOO</h3>
-                    <p>World Olympiad Organisation</p>
-                    <p>Empowering young minds through academic excellence</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#olympiads">Olympiads</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#registration">Register</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li>Email: info@woo.org</li>
-                        <li>Phone: +1 (555) 123-4567</li>
-                        <li>Address: 123 Science Avenue, Knowledge City</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                &copy; 2023 World Olympiad Organisation. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
+        </section>
+        <section class="register-section">
+            <button id="registerBtn">Register Now</button>
+        </section>
+        <footer>
+            <p>&copy; 2025 WOO World Olympiad Organisation</p>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
-    </html>
+</html>
