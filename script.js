@@ -1,6 +1,7 @@
 /**
  * 1. Mobile Navigation Toggle (FIXED)
- * Ensure the hamburger button correctly toggles the 'open' class on the navbar.
+ * Corrected logic to ensure the hamburger button reliably toggles the 'open' class
+ * and closes the menu on link click on mobile devices.
  */
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             // Check if the hamburger is visible (i.e., we are on mobile)
+            // This is a more robust check than relying purely on the screen width.
             if (window.getComputedStyle(hamburger).display !== 'none') {
                 navMenu.classList.remove('open');
             }
@@ -65,29 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
         height = canvas.height = window.innerHeight;
     }
 
-    // Star Class
+    // Star Class (Code remains the same for the visual effect)
     class Star {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.radius = Math.random() * 1.5 + 0.5; // Star size 0.5 to 2
+            this.radius = Math.random() * 1.5 + 0.5;
             this.velocity = {
-                x: (Math.random() - 0.5) * 0.1, // Subtle slow movement
+                x: (Math.random() - 0.5) * 0.1,
                 y: (Math.random() - 0.5) * 0.1
             };
-            this.alpha = Math.random() * 0.5 + 0.3; // Transparency for twinkling effect
-            this.alphaDecay = Math.random() * 0.005 + 0.001; // Rate of change for twinkling
+            this.alpha = Math.random() * 0.5 + 0.3;
+            this.alphaDecay = Math.random() * 0.005 + 0.001;
         }
 
         update() {
-            // Move the star
             this.x += this.velocity.x;
             this.y += this.velocity.y;
 
-            // Twinkling effect
             this.alpha += (Math.random() - 0.5) * this.alphaDecay * 2;
             if (this.alpha > 0.8 || this.alpha < 0.3) {
-                this.alphaDecay = -this.alphaDecay; // Reverse direction when hitting min/max
+                this.alphaDecay = -this.alphaDecay;
             }
 
             // Boundary wrapping
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.shadowBlur = this.radius * 2;
             ctx.shadowColor = `rgba(0, 188, 212, 0.7)`;
             ctx.fill();
-            ctx.shadowBlur = 0; // Reset shadow
+            ctx.shadowBlur = 0;
         }
     }
 
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animation loop
     function animate() {
         requestAnimationFrame(animate);
-        ctx.fillStyle = 'rgba(10, 25, 47, 0.1)'; // Slight trail effect with low opacity
+        ctx.fillStyle = 'rgba(10, 25, 47, 0.1)';
         ctx.fillRect(0, 0, width, height);
 
         stars.forEach(star => {
@@ -134,4 +134,3 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     animate();
 });
-                
