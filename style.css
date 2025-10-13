@@ -12,6 +12,7 @@ header {
     background: url('https://source.unsplash.com/random/1920x1080/?space,stars') no-repeat center center/cover;
     position: relative;
     height: 60vh;
+    background-attachment: fixed;
 }
 
 header .overlay {
@@ -31,11 +32,12 @@ header .content {
 }
 
 .navbar {
+    background-color: #000000 !important;
     transition: background-color 0.3s ease;
 }
 
 .navbar.scrolled {
-    background-color: #000000 !important;
+    background-color: #1a1a1a !important;
 }
 
 .card {
@@ -59,11 +61,12 @@ header .content {
 
 .glow-btn {
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .glow-btn:hover {
     box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+    transform: scale(1.1);
 }
 
 .accordion .card {
@@ -91,27 +94,28 @@ ul {
 
 .fade-in {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .fade-in.visible {
     opacity: 1;
-}
-
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    transform: translateY(0);
 }
 
 .social-icons i {
     font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #007bff;
 }
 
 @media (max-width: 768px) {
     header {
         height: 40vh;
+        background-attachment: scroll; /* Parallax can be glitchy on mobile */
     }
 
     .row .col-md-4 {
