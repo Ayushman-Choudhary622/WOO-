@@ -3,315 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WOO - World Olympiad Organisation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>World Olympiad Organisation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="#">WOO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#olympiads">Olympiads</a></li>
-                <li class="nav-item"><a class="nav-link" href="#epsilon">Epsilon</a></li>
-                <li class="nav-item"><a class="nav-link" href="#zeta">Zeta</a></li>
-                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header class="text-white text-center py-5" id="header">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>WOO - World Olympiad Organisation</h1>
-            <p>Empowering young minds through global competitions in Science, Maths, and Technology.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">WOO</div>
+            </div>
+            <div class="mobile-menu">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#olympiads">Olympiads</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#registration">Register</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="container my-5 fade-in" id="about">
-        <h2 class="text-center text-light">About WOO</h2>
-        <p class="text-center text-light">The World Olympiad Organisation (WOO) conducts 7 exciting Olympiads designed for students in classes 5-10. These Olympiads are divided into two categories:</p>
-        <ul class="list-unstyled text-center text-light">
-            <li><strong>Epsilon:</strong> For classes 5-7</li>
-            <li><strong>Zeta:</strong> For classes 8-10</li>
-        </ul>
-        <p class="text-center text-light">Participate in our Olympiads to test your knowledge and skills!</p>
-        <div class="text-center">
-            <a href="#olympiads" class="btn btn-outline-light btn-lg glow-btn">Learn More</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>World Olympiad Organisation</h1>
+            <p>Empowering young minds through challenging academic competitions in science, mathematics, and technology</p>
+            <a href="#registration" class="btn">Register Now</a>
         </div>
     </section>
 
-    <section class="container my-5 py-4 fade-in" id="olympiads">
-        <h2 class="text-center text-light">Our Olympiads</h2>
-        <div class="row" id="olympiad-cards">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WPO - World Physics Olympiad</h5>
-                        <p class="card-text text-muted">Focused on physics concepts and problem-solving.</p>
-                    </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About WOO</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The World Olympiad Organisation (WOO) is dedicated to fostering academic excellence and nurturing young talents across the globe. Our mission is to provide a platform for students to showcase their knowledge, critical thinking, and problem-solving skills.</p>
+                    <p>We conduct seven distinct Olympiads covering Physics, Chemistry, Biology, Science, Mathematics, Junior Science, and Hackathon competitions. Each Olympiad is carefully designed to challenge students appropriately for their academic level.</p>
+                    <p>Our competitions are divided into two categories: Epsilon for classes 5-7 and Zeta for classes 8-10, ensuring age-appropriate challenges and fair competition.</p>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WCO - World Chemistry Olympiad</h5>
-                        <p class="card-text text-muted">Exploring chemical reactions, elements, and more.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WBO - World Biology Olympiad</h5>
-                        <p class="card-text text-muted">Diving into life sciences and biological systems.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WSO - World Science Olympiad</h5>
-                        <p class="card-text text-muted">Comprehensive science (PCB) with lower difficulty questions.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WMO - World Maths Olympiad</h5>
-                        <p class="card-text text-muted">Challenging mathematical problems and proofs.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WJSO - World Junior Science Olympiad</h5>
-                        <p class="card-text text-muted">Integrating science, maths, and experiments.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 mx-auto">
-                <div class="card h-100 glow-card">
-                    <div class="card-body">
-                        <h5 class="card-title text-light">WHO - World Hackathon Olympiad</h5>
-                        <p class="card-text text-muted">Coding and problem-solving in a hackathon format.</p>
+                <div class="about-image">
+                    <!-- Placeholder for an image -->
+                    <div class="image-placeholder">
+                        <span>Scientific Background Image</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container my-5 fade-in" id="epsilon">
-        <h2 class="text-center text-light">Epsilon Category (Classes 5-7)</h2>
-        <div class="accordion" id="epsilonAccordion">
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWPOEpsilon">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#collapseWPOEpsilon" aria-expanded="true" aria-controls="collapseWPOEpsilon">
-                            WPO, WCO, WBO, WSO, WJSO
-                        </button>
-                    </h5>
+    <!-- Olympiads Section -->
+    <section id="olympiads" class="olympiads">
+        <div class="container">
+            <h2>Our Olympiads</h2>
+            <p>WOO conducts seven specialized Olympiads to challenge students in different scientific disciplines:</p>
+            
+            <div class="olympiad-grid">
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WPO</span> Physics Olympiad</h3>
+                    <p>Challenge your understanding of fundamental physics concepts and problem-solving abilities.</p>
                 </div>
-                <div id="collapseWPOEpsilon" class="collapse show" aria-labelledby="headingWPOEpsilon" data-parent="#epsilonAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>25 SCQ questions (+2/-0.5)</li>
-                            <li>5 MCQ questions (+4/-2)</li>
-                            <li>45 minutes test</li>
-                        </ul>
-                    </div>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WCO</span> Chemistry Olympiad</h3>
+                    <p>Test your knowledge of chemical principles, reactions, and laboratory concepts.</p>
                 </div>
-            </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWMOEpsilon">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseWMOEpsilon" aria-expanded="false" aria-controls="collapseWMOEpsilon">
-                            WMO
-                        </button>
-                    </h5>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WBO</span> Biology Olympiad</h3>
+                    <p>Explore the fascinating world of living organisms, from cellular biology to ecosystems.</p>
                 </div>
-                <div id="collapseWMOEpsilon" class="collapse" aria-labelledby="headingWMOEpsilon" data-parent="#epsilonAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>25 SCQ (+2/-0.5)</li>
-                            <li>5 MCQ (+4/-2)</li>
-                            <li>1 Proof (0 ≤ x ≤ 10) with 2 alternatives</li>
-                            <li>1 hour test</li>
-                        </ul>
-                    </div>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WSO</span> Science Olympiad</h3>
+                    <p>A comprehensive test covering Physics, Chemistry, and Biology with slightly easier questions.</p>
                 </div>
-            </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWHOEpsilon">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseWHOEpsilon" aria-expanded="false" aria-controls="collapseWHOEpsilon">
-                            WHO
-                        </button>
-                    </h5>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WMO</span> Mathematics Olympiad</h3>
+                    <p>Challenge your mathematical reasoning, problem-solving, and proof-writing skills.</p>
                 </div>
-                <div id="collapseWHOEpsilon" class="collapse" aria-labelledby="headingWHOEpsilon" data-parent="#epsilonAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>2-hour Hackathon</li>
-                            <li>5 problems, no negative marking</li>
-                            <li>Each problem max 10 marks</li>
-                        </ul>
-                    </div>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WJSO</span> Junior Science Olympiad</h3>
+                    <p>An integrated approach combining science, mathematics, and experimental concepts.</p>
+                </div>
+                
+                <div class="olympiad-card">
+                    <h3><span class="olympiad-icon">WHO</span> Hackathon Olympiad</h3>
+                    <p>Apply your coding and problem-solving skills to real-world challenges in a timed competition.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container my-5 py-4 fade-in" id="zeta">
-        <h2 class="text-center text-light">Zeta Category (Classes 8-10)</h2>
-        <div class="accordion" id="zetaAccordion">
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWPOZeta">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#collapseWPOZeta" aria-expanded="true" aria-controls="collapseWPOZeta">
-                            WPO, WCO, WBO, WSO, WJSO
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseWPOZeta" class="collapse show" aria-labelledby="headingWPOZeta" data-parent="#zetaAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>35 SCQ questions (+2/-0.5)</li>
-                            <li>5 MCQ questions (+4/-2)</li>
-                            <li>1 hour test</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Competition Categories</h2>
+            <p>All Olympiads are divided into two age-appropriate categories with tailored difficulty levels:</p>
+            
+            <div class="category-tabs">
+                <div class="tab active" data-tab="epsilon">Epsilon (Classes 5-7)</div>
+                <div class="tab" data-tab="zeta">Zeta (Classes 8-10)</div>
             </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWMOZeta">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseWMOZeta" aria-expanded="false" aria-controls="collapseWMOZeta">
-                            WMO
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseWMOZeta" class="collapse" aria-labelledby="headingWMOZeta" data-parent="#zetaAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>35 SCQ (+2/-0.5)</li>
-                            <li>5 MCQ (+4/-2)</li>
-                            <li>3 Proofs (0 ≤ x ≤ 10) with 5 alternatives</li>
-                            <li>2 hour test</li>
-                        </ul>
-                    </div>
-                </div>
+            
+            <div class="tab-content active" id="epsilon-content">
+                <h3>Epsilon Category Details</h3>
+                <p>For students in classes 5-7, the Epsilon category provides an engaging introduction to Olympiad competitions with age-appropriate challenges.</p>
+                
+                <table class="category-table">
+                    <thead>
+                        <tr>
+                            <th>Olympiad</th>
+                            <th>Duration</th>
+                            <th>Question Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WBO, WCO, WPO, WSO, WJSO</td>
+                            <td>45 minutes</td>
+                            <td>25 SCQ (+2/-0.5) + 5 MCQ (+4/-2)</td>
+                        </tr>
+                        <tr>
+                            <td>WMO</td>
+                            <td>1 hour</td>
+                            <td>25 SCQ (+2/-0.5) + 5 MCQ (+4/-2) + 1 Proof (0≤x≤10)</td>
+                        </tr>
+                        <tr>
+                            <td>WHO</td>
+                            <td>2 hours</td>
+                            <td>5 problems (no negative marking, each 10 marks max)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="headingWHOZeta">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseWHOZeta" aria-expanded="false" aria-controls="collapseWHOZeta">
-                            WHO
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseWHOZeta" class="collapse" aria-labelledby="headingWHOZeta" data-parent="#zetaAccordion">
-                    <div class="card-body text-muted">
-                        <ul>
-                            <li>2.5-hour Hackathon</li>
-                            <li>7 problems, no negative marking</li>
-                            <li>Each problem max 10 marks</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-5 fade-in" id="faq">
-        <h2 class="text-center text-light">Frequently Asked Questions</h2>
-        <div class="accordion" id="faqAccordion">
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="faq1">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#collapseFaq1" aria-expanded="true" aria-controls="collapseFaq1">
-                            How do I register?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFaq1" class="collapse show" aria-labelledby="faq1" data-parent="#faqAccordion">
-                    <div class="card-body text-muted">
-                        Click on the Register Now button and fill out the Google Form.
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="faq2">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseFaq2" aria-expanded="false" aria-controls="collapseFaq2">
-                            What is the eligibility?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFaq2" class="collapse" aria-labelledby="faq2" data-parent="#faqAccordion">
-                    <div class="card-body text-muted">
-                        Students in classes 5-10 are eligible, divided into Epsilon (5-7) and Zeta (8-10).
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="faq3">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseFaq3" aria-expanded="false" aria-controls="collapseFaq3">
-                            Are there any fees?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFaq3" class="collapse" aria-labelledby="faq3" data-parent="#faqAccordion">
-                    <div class="card-body text-muted">
-                        Participation is free for all Olympiads.
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-dark border-0">
-                <div class="card-header" id="faq4">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#collapseFaq4" aria-expanded="false" aria-controls="collapseFaq4">
-                            When will the Olympiads be held?
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseFaq4" class="collapse" aria-labelledby="faq4" data-parent="#faqAccordion">
-                    <div class="card-body text-muted">
-                        Dates will be announced soon. Stay tuned!
-                    </div>
-                </div>
+            
+            <div class="tab-content" id="zeta-content">
+                <h3>Zeta Category Details</h3>
+                <p>For students in classes 8-10, the Zeta category offers more advanced challenges to test deeper understanding and problem-solving skills.</p>
+                
+                <table class="category-table">
+                    <thead>
+                        <tr>
+                            <th>Olympiad</th>
+                            <th>Duration</th>
+                            <th>Question Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WBO, WCO, WPO, WSO, WJSO</td>
+                            <td>1 hour</td>
+                            <td>35 SCQ (+2/-0.5) + 5 MCQ (+4/-2)</td>
+                        </tr>
+                        <tr>
+                            <td>WMO</td>
+                            <td>2 hours</td>
+                            <td>35 SCQ (+2/-0.5) + 5 MCQ (+4/-2) + 3 Proof (0≤x≤10)</td>
+                        </tr>
+                        <tr>
+                            <td>WHO</td>
+                            <td>2.5 hours</td>
+                            <td>7 problems (no negative marking, each 10 marks max)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <section class="container my-5 text-center fade-in" id="register">
-        <h2 class="text-light">Ready to Participate?</h2>
-        <p class="text-light">Click the button below to register via Google Form.</p>
-        <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn btn-outline-light btn-lg glow-btn" target="_blank" id="register-btn">Register Now</a>
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <h2>Register for WOO Olympiads</h2>
+            <p>Ready to challenge yourself? Register now for the WOO Olympiads and showcase your academic talents on a global platform.</p>
+            <a href="#" class="btn" id="register-btn">Register Now</a>
+            <p class="redirect-note">You will be redirected to our registration form</p>
+        </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2025 WOO - World Olympiad Organisation. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WOO</h3>
+                    <p>World Olympiad Organisation</p>
+                    <p>Empowering young minds through academic excellence</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#olympiads">Olympiads</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#registration">Register</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@woo.org</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Science Avenue, Knowledge City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 World Olympiad Organisation. All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
     </html>
