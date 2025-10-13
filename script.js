@@ -1,5 +1,6 @@
 /**
- * 1. Mobile Navigation Toggle
+ * 1. Mobile Navigation Toggle (FIXED)
+ * Ensure the hamburger button correctly toggles the 'open' class on the navbar.
  */
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
@@ -11,10 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('open');
     });
 
-    // Close menu when a link is clicked (for mobile UX)
+    // Close menu when a link is clicked (for smooth scroll and mobile UX)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu.classList.contains('open')) {
+            // Check if the hamburger is visible (i.e., we are on mobile)
+            if (window.getComputedStyle(hamburger).display !== 'none') {
                 navMenu.classList.remove('open');
             }
         });
@@ -23,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /**
- * 2. Format Tab Switching Logic
+ * 2. Format Tab Switching Logic (Zeta Content FIX)
+ * Ensures only one format detail section is visible at a time.
  */
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -131,4 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     animate();
 });
-        
+                
