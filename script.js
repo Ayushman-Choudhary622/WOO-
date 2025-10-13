@@ -1,5 +1,3 @@
-// scripts.js
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('a.nav-link').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -8,7 +6,7 @@ document.querySelectorAll('a.nav-link').forEach(anchor => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
             window.scrollTo({
-                top: targetElement.offsetTop - 70, // Adjust for navbar height
+                top: targetElement.offsetTop - 70,
                 behavior: 'smooth'
             });
         }
@@ -66,16 +64,8 @@ if (registerBtn) {
     });
 }
 
-// Parallax effect for header (simple JS fallback if CSS not supported)
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const scrollPosition = window.pageYOffset;
-    header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-});
-
-// Ensure compatibility and polyfill if needed (e.g., for older browsers)
+// Ensure compatibility and polyfill if needed
 if (!('IntersectionObserver' in window)) {
-    // Fallback: make all sections visible immediately
     sections.forEach(section => {
         section.classList.add('visible');
     });
