@@ -1,122 +1,469 @@
-body, html {
-    height: 100%;
+
+/* ------------------------------------------- */
+/* 1. Global Reset & Variables */
+/* ------------------------------------------- */
+:root {
+    --color-primary: #00bcd4; /* Cyan/Aqua - for main accents */
+    --color-secondary: #ff9800; /* Orange - for button hover/secondary accents */
+    --color-dark: #0a192f; /* Deep Navy Blue/Black - the main dark background */
+    --color-light: #ccd6f6; /* Light Gray/Blue - for main text */
+    --color-card-bg: rgba(18, 41, 71, 0.75); /* Slightly lighter dark for cards */
+    --font-primary: 'Orbitron', sans-serif; /* For headers, tech look */
+    --font-secondary: 'Roboto', sans-serif; /* For body text, readability */
+    --spacing-lg: 4rem;
+    --spacing-md: 2rem;
+    --spacing-sm: 1rem;
+    --transition-speed: 0.3s ease;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #f0f0f0;
+    box-sizing: border-box;
 }
 
-/* Galaxy background (gradient with blur + stars) */
-.background {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
-    background: linear-gradient(135deg, #12162e 40%, #181d36 80%);
-    overflow: hidden;
-}
-.background::after {
-    content: '';
-    background: url('https://www.transparenttextures.com/patterns/galaxy.png');
-    opacity: 0.3;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
-    filter: blur(2px);
+html {
+    scroll-behavior: smooth;
 }
 
-/* Main container */
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll due to potential background stretching */
+}
+
+/* ------------------------------------------- */
+/* 2. Layout & Containers */
+/* ------------------------------------------- */
+
 .container {
-    max-width: 670px;
-    margin: 22px auto;
-    background: rgba(22, 30, 55, 0.94);
-    box-shadow: 0 2px 12px #181d36cc;
-    border-radius: 16px;
-    padding: 32px 20px 20px 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-header h1 {
-    font-size: 2.1rem;
-    margin-bottom: 8px;
-}
-.subtitle {
-    font-size: 1.1rem;
-    color: #6dd8f3;
-    margin-bottom: 18px;
+.section {
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    z-index: 2; /* Keep content above the background canvas */
 }
 
-section {
-    margin-bottom: 28px;
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
 }
 
-.categories {
+.section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ------------------------------------------- */
+/* 3. Background (Canvas) */
+/* ------------------------------------------- */
+#galaxy-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind everything */
+    opacity: 0.5; /* Subtly visible */
+}
+
+/* ------------------------------------------- */
+/* 4. Buttons */
+/* ------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: all var(--transition-speed);
+    font-family: var(--font-primary);
+}
+
+.btn-primary {
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--color-secondary);
+    box-shadow: 0 0 15px var(--color-secondary);
+}
+
+/* ------------------------------------------- */
+/* 5. Header & Navigation */
+/* ------------------------------------------- */
+header {
+    background-color: rgba(10, 25, 47, 0.9); /* Semi-transparent dark header */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header .container {
     display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-.category {
-    flex: 1;
-    min-width: 240px;
-    background: rgba(41, 51, 85, 0.82);
-    border-radius: 10px;
-    padding: 14px 13px 9px 13px;
-    margin-bottom: 10px;
-}
-.category h3 {
-    margin: 0 0 8px 0;
-    color: #66ccff;
-    font-size: 1.07rem;
-}
-.category span {
-    color: #ffd166;
-    font-size: 0.93rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.formats h3 {
-    color: #fd9bc3;
-    margin: 13px 0 8px 0;
+.logo {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--color-primary);
+    letter-spacing: 3px;
 }
-.formats ul {
-    margin: 0 0 8px 13px;
-    padding-left: 12px;
+
+nav a {
+    color: var(--color-light);
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color var(--transition-speed);
 }
-.register-section {
-    text-align: center;
-    margin: 20px 0 16px 0;
+
+nav a:hover {
+    color: var(--color-primary);
 }
-#registerBtn {
-    background: linear-gradient(90deg, #09a9c2 55%, #184885 100%);
-    color: #fff;
-    font-size: 1.18rem;
-    padding: 13px 32px;
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width var(--transition-speed);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
     border: none;
-    border-radius: 9px;
+    color: var(--color-primary);
+    font-size: 2rem;
     cursor: pointer;
-    box-shadow: 0 2px 8px #222a50aa;
-    transition: background 0.22s, transform 0.17s;
-}
-#registerBtn:hover {
-    background: linear-gradient(90deg, #1ef5fc 45%, #232faf 100%);
-    transform: scale(1.07);
 }
 
-footer {
-    font-size: 0.98rem;
-    color: #68e0ea;
+/* ------------------------------------------- */
+/* 6. Hero Section */
+/* ------------------------------------------- */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin-top: 8px;
+    position: relative;
+    z-index: 2;
 }
 
-@media screen and (max-width: 690px) {
-    .container {
-        max-width: 99vw;
-        padding: 17px 7vw 12px 7vw;
+.hero-section h2 {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------------------------- */
+/* 7. Olympiads Section (Cards) */
+/* ------------------------------------------- */
+
+#olympiads .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.olympiad-card {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-top: 3px solid var(--color-primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transition-speed), border-top-color var(--transition-speed);
+}
+
+.olympiad-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--color-secondary);
+}
+
+.olympiad-card h4 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.olympiad-card p.description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ------------------------------------------- */
+/* 8. Format and Rules Section */
+/* ------------------------------------------- */
+
+.tab-controls {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid var(--color-light);
+    color: var(--color-light);
+    padding: 0.7rem 1.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all var(--transition-speed);
+}
+
+.tab-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-dark);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+.tab-btn:hover:not(.active) {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.format-details {
+    display: none;
+    padding-top: var(--spacing-md);
+}
+
+.format-details.active {
+    display: block;
+}
+
+.category-header {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px dashed rgba(255, 152, 0, 0.5);
+    padding-bottom: 10px;
+}
+
+.format-details .format-card {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-left: 5px solid var(--color-primary);
+    border-radius: 0 8px 8px 0;
+}
+
+.format-details .format-card h5 {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+}
+
+.format-details .format-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.format-details .format-card li {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300bcd4'%3E%3Cpath d='M10 15.586l-3.293-3.293-1.414 1.414L10 18.414l7.707-7.707-1.414-1.414z'/%3E%3C/svg%3E") no-repeat left center;
+    background-size: 16px;
+    padding-left: 25px;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ------------------------------------------- */
+/* 9. Registration Section */
+/* ------------------------------------------- */
+.register-section-final {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    background-color: rgba(10, 25, 47, 0.6); /* Slightly darker background */
+    border-top: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.btn-register-final {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    margin-top: var(--spacing-md);
+}
+
+/* ------------------------------------------- */
+/* 10. Footer */
+/* ------------------------------------------- */
+footer {
+    background-color: var(--color-dark);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 188, 212, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* for mobile */
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-links a {
+    color: var(--color-light);
+    text-decoration: none;
+    margin-left: var(--spacing-sm);
+    font-size: 0.9rem;
+    transition: color var(--transition-speed);
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+
+/* ------------------------------------------- */
+/* 11. Media Queries (Responsiveness) */
+/* ------------------------------------------- */
+
+@media (max-width: 800px) {
+    .hero-section h2 {
+        font-size: 3rem;
     }
-    .categories {
+    
+    /* Navigation Adjustments for Mobile */
+    #navbar {
+        display: none; /* Hide desktop nav */
         flex-direction: column;
-        gap: 13px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 25, 47, 0.95);
+        border-top: 1px solid rgba(0, 188, 212, 0.3);
+        padding-bottom: 10px;
     }
-    .category {
-        min-width: unset;
-        padding: 10px 7px 7px 7px;
+
+    #navbar a {
+        margin: 0;
+        padding: 10px var(--spacing-md);
+        text-align: center;
+        width: 100%;
+    }
+
+    #navbar a:last-child {
+        margin-top: 10px;
+    }
+
+    #navbar.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    .register-btn-nav {
+        display: block;
+        border: none;
+        background-color: var(--color-secondary);
+        color: var(--color-dark);
+        border-radius: 0;
+    }
+
+    .register-btn-nav:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-dark);
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .tab-controls {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        margin: 0.5rem 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links {
+        margin-top: 5px;
     }
 }
