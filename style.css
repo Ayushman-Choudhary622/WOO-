@@ -26,6 +26,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* FIX: Ensure body font is correctly applied everywhere */
 body {
     font-family: var(--font-secondary);
     background-color: var(--color-dark);
@@ -46,6 +47,7 @@ body {
     z-index: 2;
 }
 
+/* FIX: Ensure title font is correctly applied */
 .section-title {
     font-family: var(--font-primary);
     font-size: 2.5rem;
@@ -72,8 +74,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Behind everything */
-    opacity: 0.5; /* Subtly visible */
+    z-index: 0;
+    opacity: 0.5;
 }
 
 /* ------------------------------------------- */
@@ -90,7 +92,7 @@ body {
     letter-spacing: 1px;
     border-radius: 5px;
     transition: all var(--transition-speed);
-    font-family: var(--font-primary);
+    font-family: var(--font-primary); /* Ensure button text uses tech font */
 }
 
 .btn-primary {
@@ -119,7 +121,7 @@ body {
 /* 4. Header & Navigation */
 /* ------------------------------------------- */
 header {
-    background-color: rgba(10, 25, 47, 0.9); /* Semi-transparent dark header */
+    background-color: rgba(10, 25, 47, 0.9);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -169,7 +171,7 @@ nav a:hover::after {
 }
 
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
     color: var(--color-primary);
@@ -243,7 +245,7 @@ nav a:hover::after {
 
 
 /* ------------------------------------------- */
-/* 7. Format and Rules Section */
+/* 7. Format and Rules Section (FIXED Zeta Display) */
 /* ------------------------------------------- */
 
 .tab-controls {
@@ -276,6 +278,7 @@ nav a:hover::after {
     color: var(--color-secondary);
 }
 
+/* Ensure only the active format-details block is shown */
 .format-details {
     display: none;
     padding-top: var(--spacing-md);
@@ -380,7 +383,7 @@ nav a:hover::after {
     border-collapse: collapse;
     width: 100%;
     border-radius: 8px;
-    overflow: hidden; /* For rounded corners on the whole table */
+    overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -420,7 +423,7 @@ nav a:hover::after {
 .register-section-final {
     text-align: center;
     padding: var(--spacing-lg) 0;
-    background-color: rgba(10, 25, 47, 0.6); /* Slightly darker background */
+    background-color: rgba(10, 25, 47, 0.6);
     border-top: 1px solid rgba(0, 188, 212, 0.2);
 }
 
@@ -446,7 +449,7 @@ footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* for mobile */
+    flex-wrap: wrap;
 }
 
 footer p {
@@ -476,25 +479,28 @@ footer p {
         font-size: 3rem;
     }
     
-    /* Navigation Adjustments for Mobile (Menu Button FIX) */
+    /* FIX: Mobile Menu Display */
     #navbar {
-        display: none; /* Hidden by default */
+        /* This must be initially hidden, but 'display: none' is managed by JS toggle */
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(10, 25, 47, 0.98); /* Near opaque */
+        background-color: rgba(10, 25, 47, 0.98);
         border-top: 1px solid rgba(0, 188, 212, 0.3);
         padding-bottom: 10px;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
         opacity: 0;
-        transition: opacity var(--transition-speed);
+        visibility: hidden; /* Use visibility/opacity for smooth transition */
+        transition: opacity var(--transition-speed), visibility var(--transition-speed);
+        display: flex; /* Always display flex on mobile, control visibility with class */
     }
 
+    /* FIX: Show menu on click */
     #navbar.open {
-        display: flex; /* Shown when 'open' class is added by JS */
         opacity: 1;
+        visibility: visible;
     }
 
     #navbar a {
@@ -519,19 +525,17 @@ footer p {
     
     /* Schedule table on small screens */
     .schedule-row {
-        grid-template-columns: 1fr; /* Stack columns */
+        grid-template-columns: 1fr;
         text-align: left;
         padding: 0.8rem 0.5rem;
     }
-    .schedule-row .col:not(:last-child)::after {
-        content: ""; /* No separator */
-    }
+    
     .schedule-row .col:first-child {
         font-weight: bold;
         color: var(--color-primary);
     }
     .schedule-row.header {
-        display: none; /* Hide header row on mobile when stacking */
+        display: none;
     }
     .schedule-row.highlight {
         padding: 1rem 0.5rem;
@@ -547,10 +551,6 @@ footer p {
         font-size: 2.5rem;
     }
 
-    .hero-section p {
-        font-size: 1rem;
-    }
-
     .tab-controls {
         display: flex;
         flex-direction: column;
@@ -564,4 +564,5 @@ footer p {
         flex-direction: column;
         gap: 10px;
     }
-}
+    }
+    
