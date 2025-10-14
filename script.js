@@ -134,3 +134,39 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     animate();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('woo-registration-form');
+    if (!form) return;
+
+    const checkboxes = form.querySelectorAll('input[name="olympiads"]');
+    const estimatedCostSpan = document.getElementById('estimated-cost');
+    const discountSpan = document.getElementById('discount');
+    const finalFeeSpan = document.getElementById('final-fee');
+    
+    // The fixed cost per Olympiad for display purposes
+    const feePerOlympiad = 50;
+
+    function updateFeeSummary() {
+        let totalEstimatedCost = 0;
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                totalEstimatedCost += feePerOlympiad;
+            }
+        });
+
+        // Update the display elements
+        estimatedCostSpan.textContent = `₹${totalEstimatedCost}`;
+        discountSpan.textContent = `-₹${totalEstimatedCost}`;
+        finalFeeSpan.textContent = `₹0`; // Final fee is always 0
+    }
+
+    // Attach event listeners to all checkboxes
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateFeeSummary);
+    });
+
+    // Run once on load to initialize the summary
+    updateFeeSummary();
+});
+
