@@ -19,7 +19,7 @@
                 <a href="#format">Format</a>
                 <a href="#awards">Awards</a>
                 <a href="#schedule">Schedule</a>
-                <a href="#register-section" class="btn btn-primary register-btn-nav">Register Now</a>
+                <a href="#registration-form-section" class="btn btn-primary register-btn-nav">Register Now</a>
             </nav>
             <button class="hamburger" aria-label="Toggle Navigation">&#9776;</button>
         </div>
@@ -252,13 +252,106 @@
             </div>
         </section>
 
-        <section id="register-section" class="section register-section-final">
+                <section id="registration-form-section" class="section">
             <div class="container">
-                <h3 class="section-title">Ready for Launch?</h3>
-                <p class="section-subtitle">Secure your spot in the WOO. Click the button below to complete the registration form.</p>
-                <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-secondary btn-register-final">Register via Google Form</a>
+                <h3 class="section-title">Secure Your Free Spot Now</h3>
+                <p class="section-subtitle">Enroll for the WOO Challenges. Normally ₹50 per Olympiad, but **FREE** for a limited time!</p>
+
+                <form id="woo-registration-form" action="https://formspree.io/f/xqaygvgp" method="POST">
+                    
+                    <fieldset class="form-section">
+                        <legend>Personal Details</legend>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="_replyto" required> </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="class">Current Class/Grade</label>
+                            <input type="text" id="class" name="class" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="group">Enter your group eg EPSILON / ZETA</label>
+                            <input type="text" id="group" name="group" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-section">
+                        <legend>Select Challenges (Free Due to Early Bird Offer)</legend>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WPO" data-cost="50"> WPO (Physics)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WMO" data-cost="50"> WMO (Mathematics)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WHO" data-cost="50"> WHO (Hackathon)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WCO" data-cost="50"> WCO (Chemistry)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WBO" data-cost="50"> WBO (Biology)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WSO" data-cost="50"> WSO (Science)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="olympiads" value="WJSO" data-cost="50"> WJSO (Jr. Science)
+                                <span class="cost">(<del>₹50</del> FREE)</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-section payment-summary">
+                        <legend>Payment Summary</legend>
+                        <div class="summary-line">
+                            <span>Total Estimated Cost:</span>
+                            <span id="estimated-cost">₹0</span>
+                        </div>
+                        <div class="summary-line final-cost">
+                            <span>Early Bird Offer Discount:</span>
+                            <span id="discount">-₹0</span>
+                        </div>
+                        <div class="summary-line final-cost">
+                            <span>FINAL FEE PAYABLE:</span>
+                            <span id="final-fee">**₹0**</span>
+                        </div>
+                        
+                        <input type="hidden" name="paymentStatus" value="Free Registration - Early Bird">
+
+                        <p class="final-message">Your total fee is **₹0**. Click Register to complete your enrollment!</p>
+                    </fieldset>
+
+                    <fieldset class="form-section terms-section">
+                        <div class="form-group terms-check">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required> 
+                                I agree to the <a href="#format">T&C</a> and <a href="#">Privacy Policy</a>.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            Register Now (₹0 Fee)
+                        </button>
+                    </fieldset>
+
+                </form>
             </div>
         </section>
+
 
     </main>
 
